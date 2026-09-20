@@ -37,8 +37,6 @@ For a local development server, run:
 python -m http.server 8000
 ```
 
-Then visit <http://localhost:8000>.
-
 ## External Resources
 
 The page loads Tailwind CSS, Google Fonts, Font Awesome, and event imagery from external CDNs. An internet connection is required for those resources to display correctly.
