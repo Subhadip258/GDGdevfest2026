@@ -807,8 +807,7 @@
 
         // Open a pre-filled Google Calendar event.
         document.getElementById('addToCalendar').addEventListener('click', () => {
-            const calendarUrl = new URL('https://calendar.google.com/calendar/render');
-            calendarUrl.search = new URLSearchParams({
+            const calendarParams = new URLSearchParams({
                 action: 'TEMPLATE',
                 text: 'DevFest 2026 - GDG Kolkata',
                 dates: '20261121T033000Z/20261121T123000Z',
@@ -816,7 +815,7 @@
                 location: 'Tech Park Auditorium, Kolkata, West Bengal'
             });
 
-            window.location.href = calendarUrl.toString();
+            window.location.href = `https://calendar.google.com/calendar/u/0/r/eventedit?${calendarParams}`;
         });
 
         // Intersection Observer for fade-in animations
