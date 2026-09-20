@@ -14,7 +14,8 @@ A responsive event website for DevFest 2026, presented by Google Developer Group
 
 | File | Description |
 | --- | --- |
-| `index.html` | Complete static website and page layout |
+| `index.html` | GitHub Pages entry point that opens the DevFest page |
+| `devfest2026.html` | Complete static website and page layout |
 | `gdg-logo-removebg-preview.png` | GDG logo used by the page |
 
 ## Run Locally
