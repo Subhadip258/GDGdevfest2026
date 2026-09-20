@@ -805,33 +805,18 @@
             }, 3000);
         });
 
-        // Download the event as an iCalendar file.
+        // Open a pre-filled Google Calendar event.
         document.getElementById('addToCalendar').addEventListener('click', () => {
-            const calendarEvent = [
-                'BEGIN:VCALENDAR',
-                'VERSION:2.0',
-                'PRODID:-//GDG Kolkata//DevFest 2026//EN',
-                'BEGIN:VEVENT',
-                'UID:devfest-2026-gdg-kolkata@example.com',
-                'DTSTAMP:20260101T000000Z',
-                'DTSTART:20261121T033000Z',
-                'DTEND:20261121T123000Z',
-                'SUMMARY:DevFest 2026 - GDG Kolkata',
-                'DESCRIPTION:People. Ideas. Technology. A stronger developer community.',
-                'LOCATION:Tech Park Auditorium, Kolkata, West Bengal',
-                'END:VEVENT',
-                'END:VCALENDAR'
-            ].join('\r\n');
+            const calendarUrl = new URL('https://calendar.google.com/calendar/render');
+            calendarUrl.search = new URLSearchParams({
+                action: 'TEMPLATE',
+                text: 'DevFest 2026 - GDG Kolkata',
+                dates: '20261121T033000Z/20261121T123000Z',
+                details: 'People. Ideas. Technology. A stronger developer community.',
+                location: 'Tech Park Auditorium, Kolkata, West Bengal'
+            });
 
-            const calendarBlob = new Blob([calendarEvent], { type: 'text/calendar;charset=utf-8' });
-            const downloadUrl = URL.createObjectURL(calendarBlob);
-            const downloadLink = document.createElement('a');
-            downloadLink.href = downloadUrl;
-            downloadLink.download = 'devfest-2026-gdg-kolkata.ics';
-            document.body.appendChild(downloadLink);
-            downloadLink.click();
-            downloadLink.remove();
-            URL.revokeObjectURL(downloadUrl);
+            window.location.href = calendarUrl.toString();
         });
 
         // Intersection Observer for fade-in animations
